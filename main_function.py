@@ -20,8 +20,10 @@ def main():
 
         action = int(action)
 
+        # έξοδος
         if action == 4:
             break
+        # Εισαγωγή/ τροποποίηση / διαγραφή
         elif action == 1:
             while True:
                 print("1) Καταχώρηση \n2) Τροποποίηση \n3) Διαγραφή")
@@ -33,22 +35,28 @@ def main():
 
                 sub_action = int(sub_action)
 
+                # Επιστροσή στο αρχικό μενού
                 if sub_action == 4:
                     break
+                # Καταχώρηση
                 elif sub_action == 1:
                     transaction.create_transaction()
+                # Τροποποίηση
                 elif sub_action == 2:
                     transaction.update_transaction()
+                # Διαγραφή
                 elif sub_action == 3:
                     transaction.delete_transaction()
                 else:
                     print("Μη έγκυρη επιλογή, παρακαλώ προσπαθήστε ξανά.")
+        # Εμφάνιση συναλλαγών
         elif action == 2:
             transaction.print_transactions()
+        # Εμφάνιση συνολικού ποσού
         elif action == 3:
             transaction.print_total()
 
-    close_connection(connection)  # Διακοπή σύνδεσης με την βάση
+    close_connection(connection)
 
 
 if __name__ == "__main__":
